@@ -289,6 +289,7 @@ const movies = [
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
+
 const newestMovie = () => {
   let sortedArr = movies.sort((a, b) => b.Year - a.Year);
   return sortedArr[0];
@@ -364,7 +365,13 @@ console.log(searchAndDivide("Avengers"));
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
-
+const removeIndex = (num) => {
+  let arrCopy = movies.slice(); //solo per non modificare l'array originale
+  arrCopy.splice(num, 1);
+  return arrCopy;
+};
+console.log(removeIndex(1));
+console.log(movies);
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
 /* ESERCIZIO 20
