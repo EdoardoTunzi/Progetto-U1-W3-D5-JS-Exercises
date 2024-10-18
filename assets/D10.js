@@ -372,36 +372,51 @@ const removeIndex = (num) => {
 };
 console.log(removeIndex(1));
 console.log(movies);
+
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
-
+const container = document.getElementById("container");
+console.log(container);
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
-
+const allTd = document.querySelectorAll("td");
+console.log(allTd);
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
+allTd.forEach((element) => console.log(element.innerText));
 
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
-
+const allA = document.querySelectorAll("a");
+allA.forEach((element) => {
+  element.style.backgroundColor = "red";
+});
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
-
+const ul = document.getElementById("myList");
+const li = document.createElement("li");
+li.innerText = "Elemento 4";
+ul.appendChild(li);
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
-
+const allUlElements = document.querySelectorAll("#myList li");
+allUlElements.forEach((element) => element.remove());
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
-
+const allTr = document.querySelectorAll("tr");
+allTr.forEach((element) => {
+  element.classList.add("test");
+});
+console.log(allTr); //confermato anche creando uno style nell'head del documento e assegnando il colore blue
 // [EXTRA] JS Avanzato
 
 /* ESERCIZIO 27
