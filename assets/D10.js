@@ -75,6 +75,9 @@ console.log(whoIsBigger(50, 200));
 */
 const splitMe = function (string) {
   let stringArray = string.split(" ");
+  for (let i = 0; i < stringArray.length; i++) {
+    stringArray[i] = stringArray[i][0].toUpperCase() + stringArray[i].substr(1);
+  }
   return stringArray;
 };
 console.log(splitMe("Not all those who wander are lost"));
