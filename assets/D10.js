@@ -303,7 +303,7 @@ const countMovies = (array) => {
   let arrLenght = array.length;
   return arrLenght;
 };
-console.log(movies);
+console.log(countMovies(movies));
 /* ESERCIZIO 14
   Scrivi una funzione chiamata "onlyTheYears" che crea un array con solamente gli anni di uscita dei film contenuti nell'array "movies" fornito.
 */
@@ -316,18 +316,50 @@ console.log(onlyTheYears(movies));
   Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
 */
 
+const onlyInLastMillennium = (array) => {
+  let lastMillenniumMovies = array.filter((movie) => parseInt(movie.Year) < 2000);
+
+  return lastMillenniumMovies;
+};
+console.log(onlyInLastMillennium(movies));
+
 /* ESERCIZIO 16
   Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
 */
-
+const sumAllTheYears = (array) => {
+  let summedYears = array.map((item) => parseInt(item.Year)).reduce((sum, current) => sum + current, 0);
+  return summedYears;
+};
+console.log(sumAllTheYears(movies));
 /* ESERCIZIO 17
   Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
+
+const searchByTitle = (string) => {
+  let result = movies.filter((movie) => movie.Title.includes(string));
+  return result;
+};
+console.log(searchByTitle("Lord"));
 
 /* ESERCIZIO 18
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
   "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
+const searchAndDivide = (string) => {
+  let obj = {
+    match: [],
+    unmatch: [],
+  };
+  for (let i = 0; i < movies.length; i++) {
+    if (movies[i].Title.includes(string)) {
+      obj.match.push(movies[i]);
+    } else {
+      obj.unmatch.push(movies[i]);
+    }
+  }
+  return obj;
+};
+console.log(searchAndDivide("Avengers"));
 
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
