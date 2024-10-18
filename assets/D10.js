@@ -101,15 +101,34 @@ console.log(deleteOne("Ciao", false));
 
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
 */
-
+const onlyLetters = function (string) {
+  let strLessNum = string.replace(/\d+/g, "");
+  return strLessNum;
+};
+console.log(onlyLetters("I have 4 dogs and 45 cats"));
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
+
+const isThisAnEmail = (string) => {
+  if (string.includes("@")) {
+    return true;
+  } else {
+    return false;
+  }
+};
+console.log(isThisAnEmail("ed.tunzi@gmail.com"));
 
 /* ESERCIZIO 7
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
 */
 
+const whatDayIsIt = () => {
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  let today = days[new Date().getDay()];
+  return today;
+};
+console.log(whatDayIsIt());
 /* ESERCIZIO 8
   Scrivi una funzione chiamata "rollTheDices" che riceve un numero come parametro.
   Deve invocare la precedente funzione dice() il numero di volte specificato nel parametro, e deve tornare un oggetto contenente una proprietà "sum":
@@ -122,7 +141,16 @@ console.log(deleteOne("Ciao", false));
       values: [3, 3, 4]
   }
 */
-
+const rollTheDices = (num) => {
+  let obj = { sum: 0, values: [] };
+  for (let i = 0; i < num; i++) {
+    let rollNum = dice();
+    obj.sum += rollNum;
+    obj.values.push(rollNum);
+  }
+  return obj;
+};
+console.log(rollTheDices(10));
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 */
